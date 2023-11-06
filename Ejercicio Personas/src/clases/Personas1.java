@@ -1,7 +1,4 @@
 package clases;
-
-import com.sun.nio.sctp.AbstractNotificationHandler;
-
 import java.util.Scanner;
 
 public class Personas1 {
@@ -11,14 +8,16 @@ public class Personas1 {
     private String dni = "";
     private int anioNacimiento;
     private int edad;
-    public Personas1(String nombre, String apellidos,String dni, int anioNacimiento){
+    public Personas1(String nombre, String apellidos, int anioNacimiento){
+        final int anioActual = 2023;
         this.nombre=nombre;
         this.apellidos=apellidos;
         this.dni=dni;
         this.anioNacimiento=anioNacimiento;
-        this.edad =2023 - anioNacimiento;
+        this.edad = anioActual - anioNacimiento;
+        CalcularDNI();
+        CambiarNombre();
     }
-
     @Override
     public String toString() {
         return "\nPersonas1{" +
@@ -29,7 +28,7 @@ public class Personas1 {
                 ", edad=" + edad +
                 '}';
     }
-    public String CalcularDNI(){
+    private String CalcularDNI(){
         System.out.print("\n"+this.nombre + ", por favor introduce tu DNI:");
         String letra = "";
         String dniLetra;
@@ -65,7 +64,7 @@ public class Personas1 {
         this.dni =  dniLetra + letra;
         return this.dni;
     }
-    public String CambiarNombre(){
+    private String CambiarNombre(){
         int quieres;
         System.out.println("\nQuieres cambiar tu nombre?\nPara cambiar de nombre presiona [1], para seguir pulsa [Otra tecla numérica] ");
         quieres = scr.nextInt();
