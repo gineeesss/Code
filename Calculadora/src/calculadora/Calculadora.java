@@ -4,50 +4,78 @@ import java.util.Scanner;
 
 public class Calculadora {
     private int n;
-    private int calculo;
-
-   public Calculadora(){
-       Scanner scr = new Scanner(System.in);
-       System.out.println("Introduce Número con el que desea realizar cálculos");
-       int n = scr.nextInt();
-       System.out.println("-MENÚ----------\n\nSumar       [1]\nRestar      [2]\nMultiplicar [3]\nDividir     [4]\nFactorial   [5]\nInicializar [6]\nFin         [7]");
+    private int auxiliar;
+    Scanner scr = new Scanner(System.in);
+    public Calculadora() {
+        Iniccializar();
+        CalculadoraDisplay(n);
+    }
+   public void CalculadoraDisplay(int n){
+        System.out.println("-MENÚ----------\nResultado: "+this.n+"\nSumar       [1]\nRestar      [2]\nMultiplicar [3]\nDividir     [4]\nFactorial   [5]\nInicializar [6]\nFin         [7]");
        int i = scr.nextInt();
-       switch (i){
-           case 1:
-               Sumar();
-               break;
-           case 2:
-               break;
-           case 3:
-               break;
-           case 4:
-               break;
-           case 5:
-               break;
-           case 6:
-               break;
-           case 7:
-               break;
-       }
+           switch (i){
+               case 1:
+                   Sumar(this.n);
+                   break;
+               case 2:
+                   Restar();
+                   break;
+               case 3:
+                   Multiplicar();
+                   break;
+               case 4:
+                   Dividir();
+                   break;
+               case 5:
+                   Factorial();
+                   break;
+               case 6:
+                   Iniccializar();
+                   break;
+               case 7:
+
+           }
+       CalculadoraDisplay(this.n);
+
 
    }
-    public int Sumar(){
-    return n;
+    public int Sumar(int n){
+       auxiliar = scr.nextInt();
+       this.n = n + auxiliar;
+       return this.n;
     }
     public int Restar(){
+        auxiliar = scr.nextInt();
+        this.n=n - auxiliar;
         return n;
     }
     public int Multiplicar(){
+        auxiliar = scr.nextInt();
+        this.n = n*auxiliar;
         return n;
     }
     public int Dividir(){
+        auxiliar = scr.nextInt();
+        this.n = n / auxiliar;
         return n;
     }
     public int Factorial(){
+        auxiliar = n -1;
+        if(n>=0){
+            if (n==0){
+                this.n=1;
+            }
+            else{
+                for (;auxiliar>1;auxiliar--){
+                    this.n = n * auxiliar;
+                }
+            }
+        }
         return n;
     }
-    public int Iniccializar(){
-        return n;
+    public void Iniccializar(){
+        System.out.println("Introduce Número con el que desea realizar cálculos");
+        int n = scr.nextInt();
+        this.n = n;
     }
-
 }
