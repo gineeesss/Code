@@ -10,13 +10,11 @@ public class Personas1 {
     private int edad;
     public Personas1(String nombre, String apellidos, int anioNacimiento){
         final int anioActual = 2023;
-        this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.dni=dni;
-        this.anioNacimiento=anioNacimiento;
         this.edad = anioActual - anioNacimiento;
-        CalcularDNI();
-        CambiarNombre();
+        this.nombre=this.CambiarNombre(nombre); // se pasa una copa de la variable, no la propiedad integra
+        this.apellidos=apellidos;
+        this.dni=this.CalcularDNI();
+        this.anioNacimiento=anioNacimiento;
     }
     @Override
     public String toString() {
@@ -35,7 +33,7 @@ public class Personas1 {
         int resto;
         int dniSinLetra = scr.nextInt();
         resto = dniSinLetra%23;
-        switch (resto){
+        switch (resto){ //se puede hacer con un charat, mas eficazmente, crear string con todos los caracteres y con chart elegir la posicion
             case 0: letra="T"; break;
             case 1: letra="R"; break;
             case 2: letra="W"; break;
@@ -64,17 +62,16 @@ public class Personas1 {
         this.dni =  dniLetra + letra;
         return this.dni;
     }
-    private String CambiarNombre(){
-        int quieres;
-        System.out.println("\nQuieres cambiar tu nombre?\nPara cambiar de nombre presiona [1], para seguir pulsa [Otra tecla numérica] ");
-        quieres = scr.nextInt();
-        if (quieres == 1) {
-            if (this.edad >= 18) {
-                System.out.print(this.nombre + ", introduce tu nuevo nombre:");
-                this.nombre = scr.next();
-            } else System.out.println(this.nombre + ", debes de ser mayor de edad para cambiarte el nombre");
-            return this.nombre;
+    private String CambiarNombre(String nombre){
+        if (this.edad >= 18){
+            System.out.println(nombre + ", quieres cambiar tu nombre?\nPara cambiar de nombre presiona [1], para seguir pulsa [Otra tecla numérica] ");
+            int quieres;
+            quieres = scr.nextInt();
+            if (quieres == 1) {
+                System.out.print(nombre + ", introduce tu nuevo nombre:");
+                nombre = scr.next();
+            }
         }
-        return this.nombre;
+        return nombre;
     }
 }
