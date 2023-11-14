@@ -33,6 +33,7 @@ public class Calculadora {
                    Iniccializar();
                    break;
                case 7:
+                   return;
 
            }
        CalculadoraDisplay(this.n);
