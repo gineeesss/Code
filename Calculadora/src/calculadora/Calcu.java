@@ -5,7 +5,6 @@ public class Calcu {
     private int n;
     private int auxiliar;
 
-
     public Calcu(int n) {
         this.n = n;
     }
@@ -25,11 +24,22 @@ public class Calcu {
         return this.n /= n;
     }
     public int factorial(){
-        int resultado = 1;
+        /*int resultado = 1;
         for (int i = 1; i <= n; i++){
             resultado *= i;
+        }*/
+        auxiliar = n -1;
+        if(n>=0){
+            if (n==0){
+                this.n=1;
+            }
+            else{
+                for (;auxiliar>1;auxiliar--){
+                    this.n = n * auxiliar;
+                }
+            }
         }
-        return resultado;
+        return n;
     }
     public void inicializar() {
         Scanner scr = new Scanner(System.in);

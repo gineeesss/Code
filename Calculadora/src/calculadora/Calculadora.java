@@ -18,13 +18,13 @@ public class Calculadora {
                    Sumar(this.n);
                    break;
                case 2:
-                   Restar();
+                   Restar(this.n);
                    break;
                case 3:
-                   Multiplicar();
+                   Multiplicar(this.n);
                    break;
                case 4:
-                   Dividir();
+                   Dividir(this.n);
                    break;
                case 5:
                    Factorial();
@@ -45,17 +45,17 @@ public class Calculadora {
        this.n = n + auxiliar;
        return this.n;
     }
-    public int Restar(){
+    public int Restar(int n){
         auxiliar = scr.nextInt();
         this.n=n - auxiliar;
         return n;
     }
-    public int Multiplicar(){
+    public int Multiplicar(int n){
         auxiliar = scr.nextInt();
         this.n = n*auxiliar;
         return n;
     }
-    public int Dividir(){
+    public int Dividir(int n){
         auxiliar = scr.nextInt();
         this.n = n / auxiliar;
         return n;
