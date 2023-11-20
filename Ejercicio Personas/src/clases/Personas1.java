@@ -72,6 +72,7 @@ public class Personas1 {
                 nombre = scr.next();
             }
         }
+        int round double pow boo
         return nombre;
     }
 }
