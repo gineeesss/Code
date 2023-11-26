@@ -16,7 +16,7 @@ public class CalculadoraCorregida {
         this.resultado = 0;
     }
     public int getResultado() {
-        return this.resultado;
+        return th4is.resultado;
     }
     public int sumar(int n){
         return this.resultado +=n;
