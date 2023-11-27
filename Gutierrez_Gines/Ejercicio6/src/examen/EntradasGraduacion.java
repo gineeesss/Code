@@ -13,7 +13,8 @@ public class EntradasGraduacion {
     public EntradasGraduacion(int entradasButacas, int entradasAnfiteatro, int entradasPalco) {
         this.entradasButacas = entradasButacas;
         this.entradasAnfiteatro = entradasAnfiteatro;
-        this.entradasPalco = entradasPalco;
+        this.en
+    tradasPalco = entradasPalco;
     }
     public void venderEntradas(){
         Scanner scr = new Scanner(System.in);
@@ -44,7 +45,7 @@ public class EntradasGraduacion {
     @Override
     public String toString() {
         return "EntradasGraduacion{" +
-                "entradasButacas=" + entradasButacas +
+                  "entradasButacas=" + entradasButacas +
                 ", entradasAnfiteatro=" + entradasAnfiteatro +
                 ", entradasPalco=" + entradasPalco +
                 '}';

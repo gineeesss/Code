@@ -10,28 +10,28 @@ public class Main {
             temperaturas[i] = scr.nextInt();
         }
 
-        String guion = "=";
-        String guiones = guion;
+        String igual = "=";
+        String iguales = igual;
 
         for (int j = 0; j < meses.length; j++) {
             if (temperaturas[j] >=0){
                 for (int i = 1; i < temperaturas[j]; i++) {
-                    guiones = guiones + guion;
+                    iguales = iguales + igual;
                 }
             }else {
                 int a = temperaturas[j]*-1;
                 for (int i = 1; i < a; i++) {
-                    guiones = guiones + guion;
+                    iguales = iguales + igual;
                 }
             }
             if (temperaturas[j] ==0){
                 System.out.println(meses[j]+": ");
             } else if (temperaturas[j]<0) {
-                System.out.println(meses[j]+": -/"+guiones);
-                guiones = guion;
+                System.out.println(meses[j]+": -/"+iguales);
+                iguales = igual;
             }else {
-                System.out.println(meses[j] + ": " + guiones);
-                guiones = guion;
+                System.out.println(meses[j] + ": " + iguales);
+                iguales = igual;
             }
         }
     }
