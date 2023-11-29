@@ -21,11 +21,14 @@ public class Main {
                     alturaminima = medidas[j][i];
                 }
             }
-            media = Math.round(sumamedidas/medidas[0].length);
-            System.out.println(paises[j] +"      "+ media+"            "+alturamaxima+"            "+alturaminima);
+            media = (sumamedidas/medidas[0].length);
+           System.out.println(paises[j] +"      "+ Math.round(media)+"            "+alturamaxima+"            "+alturaminima);
+
+            //System.out.printf("%-14s %.0f %-14s %.2f %-14s %.2f\n", paises[j], media,"", alturamaxima,"", alturaminima);
+
             alturaminima=210;
             alturamaxima =0;
-
+            sumamedidas = 0;
         }
 
 

@@ -25,12 +25,16 @@ public class Main {
                 }
             }
             if (temperaturas[j] ==0){
-                System.out.println(meses[j]+": ");
+                //System.out.println(meses[j]+": ");
+                System.out.printf("%-10s: \n",meses[j]);
+
             } else if (temperaturas[j]<0) {
-                System.out.println(meses[j]+": -/"+iguales);
+                //System.out.println(meses[j]+": -/"+iguales);
+                System.out.printf("%-10s: -/%s\n",meses[j],iguales);
                 iguales = igual;
             }else {
-                System.out.println(meses[j] + ": " + iguales);
+             //   System.out.println(meses[j] + ": " + iguales);
+                System.out.printf("%-10s: %s\n",meses[j],iguales);
                 iguales = igual;
             }
         }
