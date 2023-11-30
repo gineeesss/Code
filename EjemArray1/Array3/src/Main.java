@@ -17,9 +17,9 @@ public class Main {
           }
       }
       //interfaz columnas
-        System.out.printf("     |Col1 |Col2 |Col3 |Col4 |Col5 | Suma\n");
+        System.out.printf("/////|Col1 |Col2 |Col3 |Col4 |Col5 | Suma|\n");
         //System.out.println("____________________________________");
-        System.out.println("=========================================");
+        System.out.println("=====|===================================|");
       //bucle para imprimir la tabla y la columnas extra con la suma de cada fila
         for (int i=0; i< numeros.length;i++){
             System.out.printf("Fil%d ",i+1);
@@ -28,12 +28,12 @@ public class Main {
                 System.out.printf("%s| %-4d","",numeros[i][j]);
                sumafilas = sumafilas + numeros[i][j];
             }
-            System.out.println("| "+sumafilas+" ");
+            System.out.println("| "+sumafilas+" | Suma Fila "+(i+1));
             sumatotal = sumafilas + sumatotal;
             sumafilas = 0;
         }
         //System.out.println("____________________________________");
-        System.out.println("=========================================");
+        System.out.println("=====|===================================|");
 
         //bucle para imprimir la fila de las sumas de las columnas y la suma total
         int sumacolumnas = 0;
