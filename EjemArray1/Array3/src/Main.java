@@ -11,8 +11,8 @@ public class Main {
       int sumatotal = 0;
 
       //bucle para crear la matriz
-      for (int i=0; i<4;i++){
-          for (int j=0;j<5;j++) {
+      for (int i=0; i<numeros.length;i++){
+          for (int j=0;j<numeros[0].length;j++) {
               numeros[i][j] = (int) (Math.random() * 100 + 1);
           }
       }

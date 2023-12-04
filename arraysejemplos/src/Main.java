@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.random.*;
 public class Main {
     public static void main(String[] args) {
@@ -20,22 +21,36 @@ public class Main {
 
 
         int [][][][]universo = new int[1][2][3][4];
+        System.out.println("UNIVERSO");
         for (int t=0;t< universo.length;t++){
             for (int w=0;w< universo[0].length;w++){
-                for (int j=0;j<universo[0].length;j++){
+                for (int j=0;j<universo[0][0].length;j++){
                     for (int i=0;i<universo[0][0][0].length;i++){
-                        universo[t][w][j][i]= (int)Math.random()*50+60;
+                        universo[t][w][j][i]= (int)(Math.random()*50)+60;
                     }
                 }
             }
         }
+
         for (int[][][] a:universo){
             for (int[][] b:a){
                 for (int[] c:b){
                     for (int d:c){
-                        System.out.println(d + " ");
+                        System.out.print(d + " ");
                     }
                 }
+            }
+        }
+        System.out.println("NUMEROS");
+        int[][] numeros = new int[4][5];
+        for (int i =0; i<numeros.length; i++){
+            for (int j=0;j<numeros[0].length;j++){
+                numeros[i][j] = (int)(Math.random()*10)+1;
+            }
+        }
+        for (int[] b:numeros){
+            for (int a: b){
+                System.out.print(a + " ");
             }
         }
     }
