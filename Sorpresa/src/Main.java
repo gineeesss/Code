@@ -1,18 +1,41 @@
-import mesas.Mesa;
+import mesas.Mesa2;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] numero = new int[10];
+        Scanner scr = new Scanner(System.in);
+       /*  int[] numero = new int[10];
         for(int i=0;i< numero.length;i++){
             numero[i]=i;
             Mesa mesa = new Mesa(numero[i]);
         }
-        /* ya no me da tiempo a intentarlo con este
+        ya no me da tiempo a intentarlo con este
            modelo porque tengo hecho el array de dos diensiones en la clase
            y deberia de hacerlo solo de 1
         */
+    Mesa2 mesa2 = new Mesa2();
 
 
+
+
+        System.out.println("BUSCAR MESA LIBRE \nOCUPAR MESA");
+        int menu = scr.nextInt();
+
+        switch (menu){
+            case 1:
+                System.out.println("CUANTAS PERSONAS");
+                int numClientes = scr.nextInt();
+                System.out.println(mesa2.mesalibre(numClientes));;
+            case 2:
+
+                break;
+
+        }
+        System.out.println(" ");
+
+        System.out.println(mesa2);
 
 
 

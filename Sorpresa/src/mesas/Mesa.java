@@ -1,4 +1,4 @@
-package mesas;
+/*package mesas;
 public class Mesa {
     //propiedades
      int[][] mesas = new int[2][10];
@@ -13,3 +13,4 @@ public class Mesa {
          }
     }
 }
+*/
