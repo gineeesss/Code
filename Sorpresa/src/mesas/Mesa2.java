@@ -14,19 +14,18 @@ public class Mesa2 {
         }
     }
     public int mesalibre(int per){
-        boolean mesalibre = false;
         int mejormesa=0;
-        for (int a=1;a<=comensales.length;a++){
+        for (int a=0;a<comensales.length;a++){
             if (comensales[a]==0) {
                 return a+1;
-            }else if(comensales[a]-per>=0){
+            }else if(comensales[a]+per>=4){
                mejormesa=a+1;
             }
         }
         return mejormesa;
     }
-    public void ocupar(int per,int mes){
-        this.comensales[mes]=this.comensales[mes]+per;
+    public void ocupar(int per,int mejormesa){
+        this.comensales[mejormesa-1]=(this.comensales[mejormesa-1])+per;
     }
 
     @Override
