@@ -15,30 +15,32 @@ public class Main {
            modelo porque tengo hecho el array de dos diensiones en la clase
            y deberia de hacerlo solo de 1
         */
-    Mesa2 mesa2 = new Mesa2();
-    int menu;
-    int numClientes=0;
-    int mesaposible=0;
-    do {
-        System.out.println("[1] BUSCAR MESA LIBRE \n[2] OCUPAR MESA");
-        menu = scr.nextInt();
-        switch (menu) {
-            case 1:
-                System.out.println("CUANTAS PERSONAS");
-                numClientes = scr.nextInt();
-                mesaposible = mesa2.mesalibre(numClientes);
-                System.out.println(mesa2.mesalibre(numClientes));
-                break;
-            case 2:
-                mesa2.ocupar(numClientes,mesaposible);
-                System.out.println();
-                break;
+        Mesa2 mesa2 = new Mesa2();
+        int menu;
+        int numClientes=0;
+        int mesaposible=0;
+        do {
+            System.out.println("[1] BUSCAR MESA LIBRE \n[2] OCUPAR MESA \n\n[0] CERRAR PROGRAMA");
+            menu = scr.nextInt();
+            switch (menu) {
+                case 1:
+                    System.out.println("CUANTAS PERSONAS");
+                    numClientes = scr.nextInt();
+                    mesaposible = mesa2.mesalibre(numClientes);
+                    if(mesaposible==0){
+                        System.out.println("No hay mesas disponibles");
+                    } else System.out.println(mesa2.mesalibre(numClientes));
+                    break;
+                case 2:
+                    mesa2.ocupar(numClientes,mesaposible);
+                    System.out.println();
+                    break;
 
-        }
+            }
 
-        System.out.println(" ");
-        System.out.println(mesa2);
-    }while (menu!=0);
+            System.out.println(" ");
+            System.out.println(mesa2);
+        }while (menu!=0);
 
 
 

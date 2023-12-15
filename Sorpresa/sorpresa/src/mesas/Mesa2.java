@@ -1,7 +1,7 @@
 /*
-* CLASE QUE CREA UN ARRAY CON VALORES ALEATORIOS [0-4]
-* SERÁN UTILIZADOS COMO NUMERO DE COMENSALES POR MESA
-* */
+ * CLASE QUE CREA UN ARRAY CON VALORES ALEATORIOS [0-4]
+ * SERÁN UTILIZADOS COMO NUMERO DE COMENSALES POR MESA
+ * */
 
 package mesas;
 import java.util.Arrays;
@@ -17,9 +17,10 @@ public class Mesa2 {
         int mejormesa=0;
         for (int a=0;a<comensales.length;a++){
             if (comensales[a]==0) {
+                mejormesa = a+1;
+                return mejormesa;
+            }else if(comensales[a]+per<=4){
                 return a+1;
-            }else if(comensales[a]+per>=4){
-               mejormesa=a+1;
             }
         }
         return mejormesa;
