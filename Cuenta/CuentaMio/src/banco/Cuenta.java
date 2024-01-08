@@ -20,7 +20,9 @@ public class Cuenta {
     public float getSaldo() {
         return saldo;
     }
-
+    public int getIdentificador() {
+        return identificador;
+    }
 
     public float ingresar(float importe){
         return this.saldo += importe;
@@ -28,13 +30,9 @@ public class Cuenta {
     public float retirar(float importe){
         Scanner scr = new Scanner(System.in);
         if (this.saldo - importe < 0){
-            System.out.println("El balance de la cuenta quedará en negativo, desea continuar?");
-            char continuar = scr.next().charAt(0);
-            if (continuar == 'n' || continuar == 'N'){
-                System.out.println("Operacion Cancelada");
-                return this.saldo;
-            }
-        }
+            System.out.println("El balance de la cuenta quedará en negativo, ¿desea continuar? [S/N]");
+            if(scr.nextLine().toLowerCase().equals("s")) this.saldo -= importe; // se puedde usar .equalsIgnoreCase()
+        }else this.saldo -=importe;
         return this.saldo -= importe;
     }
     public boolean esMorosa(){
