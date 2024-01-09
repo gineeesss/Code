@@ -9,16 +9,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scr = new Scanner(System.in);
         float[][] vector = new float[2][10];
-        // Cuenta cuenta ;
-        /*for (int i = 0; i<2;i++){
-            for (int j = 0; j<10; j++){
-                cuenta+j+i = vector[i][j];
-            }
-        }*/
 
+        // Cuenta cuenta ;
         Cuenta[] cuenta =new Cuenta[10];
 
-        Cuenta cuentaSa;
 
         System.out.println("BIENVENIDO/A AL BANCO CASTELAR");
         System.out.println("[0] NUEVO CLIENTE (crear nueva cuenta)");
