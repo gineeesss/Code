@@ -16,7 +16,7 @@ public class Main {
         int posicionCuenta;
         // Cuenta cuenta ;
         Cuenta[] cuenta =new Cuenta[10]; //se crea un array del tipo Cuenta, es decir de objeto cuenta, entonces cadda posicion es un objeto
-
+        int[] auxiliar = new int[2]; // en la posicion 0 se guarda el numero de cuenta y en la 1 posicion
 
         System.out.println("BIENVENIDO/A AL BANCO CASTELAR");
         System.out.println("[1] NUEVO CLIENTE (SIN saldo)");
@@ -27,41 +27,31 @@ public class Main {
         System.out.println("[6] CONSULTAR MOROSIDAD");
         System.out.println("[9] SALIR");
 
-        /*private static String menu() {
-            String menuBanco = ("BIENVENIDO/A AL BANCO CASTELAR" + "\n[1] NUEVO CLIENTE (SIN saldo)\n[2] NUEVO CLIENTE (CON saldo)")
-                    "\n[3] CONSULTAR SALDO" +
-                    "\n[4] INGRESAR DINERO" +
-                    "\n[5] RETIRAR DINERO" +
-                    "\n[6] CONSULTAR MOROSIDAD" +
-                    "\n[9] SALIR");
-            return menuBanco;
-        }*/
         do {
             eleccion = scr.nextInt();
             switch (eleccion) {
                 case 1: //crear nueva cuenta
-                    System.out.println("introduce numero de cuenta");
-                    numeroCuenta = scr.nextInt();
-                    posicionCuenta = buscarCuenta(numeroCuenta,cuenta);
-                    if (posicionCuenta==-1) {
-                        System.out.println("Cuenta ya existe");
+                    buscarCuentaArray(cuenta, auxiliar);
+                    if (auxiliar[1]==-1) {
+                        cuenta[Cuenta.getTotalCuentas()] = new Cuenta(auxiliar[0]);
                     } else {
-                        cuenta[Cuenta.getTotalCuentas()] = new Cuenta(numeroCuenta);
+                        System.out.println("Cuenta ya existe");
                     }
                     break;
 
                 case 2: //cuenta con saldo
 
-                    System.out.println("introduce numero de cuenta");
-                    numeroCuenta = scr.nextInt();
-                    posicionCuenta = buscarCuenta(numeroCuenta,cuenta);
-                    if (posicionCuenta==-1) {
-                        System.out.println("Cuenta ya existe");
-                    } else{
-                        cuenta[Cuenta.getTotalCuentas()] = new Cuenta(numeroCuenta);
+                    /*System.out.println("introduce numero de cuenta");
+                    numeroCuenta = scr.nextInt();*/
+                    buscarCuentaArray(cuenta,auxiliar);
+                    if (auxiliar[1]==-1) {
+                        cuenta[Cuenta.getTotalCuentas()] = new Cuenta(auxiliar[0]);
                         System.out.println("¿Con cuánto dinero quiere iniciar la cuenta?");
                         saldo = scr.nextFloat();
-                        cuenta[numeroCuenta].ingresar(saldo);}
+                        cuenta[auxiliar[1]].ingresar(saldo);}
+                    else{
+                        System.out.println("Cuenta ya existe");
+                        }
                     break;
 
                 case 3: // consultar saldo de una cuenta
@@ -75,38 +65,18 @@ public class Main {
                         }
                     } if (!existecuenta) System.out.println("Lo sentimos pero esa cueta no existe");
                     break;*/
-                    System.out.println("Introduce el numero de cuenta que quiere consultar");
-                    numeroCuenta= scr.nextInt();
-                    posicionCuenta= buscarCuenta(numeroCuenta, cuenta);
-                    if (posicionCuenta==-1) {
-                        System.out.println("Cuenta ya existe");
-
-                    } else {
-                        cuenta[Cuenta.getTotalCuentas()] = new Cuenta(numeroCuenta);
-                        System.out.printf("El saldo de la cuenta %d es %.2f", cuenta[posicionCuenta].getIdentificador(), cuenta[posicionCuenta].getSaldo());
-                    }
+                    buscarCuentaArray(cuenta,auxiliar);
+                    if (auxiliar[1]==-1) {
+                        System.out.println("Cuenta NO existe");
+                    } else System.out.printf("El saldo de la cuenta %d es %.2f", cuenta[auxiliar[1]].getIdentificador(), cuenta[auxiliar[1]].getSaldo());
                     break;
                 case 4:
-                    /*existecuenta = false;
-                    System.out.println("Introduzca el numero de cuenta en la que quiere ingresar dinero");
-                    numeroCuenta = scr.nextInt();
-                    for (int i=0;i<Cuenta.getTotalCuentas() && !existecuenta;i++){
-                        if(numeroCuenta==cuenta[i].getIdentificador()){
-                            existecuenta = true;
-                            System.out.println("¿Cuánto dinero quiere ingresar en la cuenta?");
-                            saldo = cuenta[i].ingresar(scr.nextFloat());
-                            System.out.printf("El nuevo saldo de la cuenta es %.2f\n",saldo); // cuenta[i].getSaldo()  si se usase el getter, sería redundante guardar el valor anterior en una variable (saldo)
-                        }
-                    } if (!existecuenta) System.out.println("Lo sentimos pero esa cueta no existe");
-                    break;*/
-                    posicionCuenta=preguntarCuenta();
-                    buscarCuenta(posicionCuenta, cuenta);
-                    if (posicionCuenta==-1) {
+                    buscarCuentaArray(cuenta,auxiliar);
+                    if (auxiliar[1]==-1) {
                         System.out.println("Cuenta NO existe");
-
                     } else {
                         System.out.println("Cuánto dinero quiere ingresar en la cuenta");
-                        cuenta[posicionCuenta].ingresar(scr.nextFloat());
+                        cuenta[auxiliar[1]].ingresar(scr.nextFloat());
                     }
 
                     break;
@@ -123,13 +93,12 @@ public class Main {
                         }
                     } if (!existecuenta) System.out.println("Lo sentimos pero esa cueta no existe");
                     break;*/
-                    posicionCuenta=preguntarCuenta();
-                    buscarCuenta(posicionCuenta, cuenta);
-                    if (posicionCuenta==-1) {
+                    buscarCuentaArray(cuenta,auxiliar);
+                    if (auxiliar[1]==-1) {
                         System.out.println("Cuenta NO existe");
                     } else {
                         System.out.println("Cuánto dinero quiere retirar en la cuenta");
-                        cuenta[posicionCuenta].retirar(scr.nextFloat());
+                        cuenta[auxiliar[1]].retirar(scr.nextFloat());
                     }
                 case 6:
                     /*existecuenta = false;
@@ -144,12 +113,11 @@ public class Main {
                         }
                     } if (!existecuenta) System.out.println("Lo sentimos pero esa cueta no existe");
                     break;*/
-                    posicionCuenta=preguntarCuenta();
-                    buscarCuenta(posicionCuenta, cuenta);
-                    if (posicionCuenta==-1) {
+                    buscarCuentaArray(cuenta,auxiliar);
+                    if (auxiliar[1]==-1) {
                         System.out.println("Cuenta NO existe");
                     } else {
-                        cuenta[posicionCuenta].esMorosa();
+                        cuenta[auxiliar[1]].esMorosa();
                     }
                 case 7:
                     System.out.printf("En nuestro  banco hayun total de %d cuentas\n", Cuenta.getTotalCuentas());
@@ -167,7 +135,7 @@ public class Main {
                 return i; //devuelva la posicion de la cuenta en el array, no el numero de la cuenta
             }
         }
-        return -1;
+        return -1; //cuando returnea -1, significa que la cuenta no exsite
     }
 
     private static int preguntarCuenta(){
@@ -175,5 +143,19 @@ public class Main {
         System.out.println("Introduzca el número de cuenta");
         int numeroCuenta = scr.nextInt();
         return numeroCuenta;
+        }
+
+    private static void buscarCuentaArray(Cuenta [] cuenta, int[] auxiliar) {
+        Scanner scr = new Scanner(System.in);
+        System.out.println("Introduzac numero cuenta [metodo]");
+        auxiliar[0] = scr.nextInt();
+        auxiliar[1] = -1;
+        for (int i = 0; i < Cuenta.getTotalCuentas() && (auxiliar[1] == -1) /*&& !existecuenta*/; i++) {
+            if (auxiliar[0] == cuenta[i].getIdentificador()) {
+                auxiliar[1] = i;
+            }
+            return; //cuando returnea -1, significa que la cuenta no exsite
+        }
     }
 }
+
