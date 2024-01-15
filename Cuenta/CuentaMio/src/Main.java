@@ -1,5 +1,4 @@
 import banco.Cuenta;
-
 import java.util.Scanner;
 
 
@@ -9,11 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scr = new Scanner(System.in);
         int eleccion;
-        //int contador = 0; // cuenta el numero de cuentas que hay creadas  (contaba)
-//        boolean existecuenta;
-        int numeroCuenta;
         float saldo;
-        int posicionCuenta;
+
         // Cuenta cuenta ;
         Cuenta[] cuenta =new Cuenta[10]; //se crea un array del tipo Cuenta, es decir de objeto cuenta, entonces cadda posicion es un objeto
         int[] auxiliar = new int[2]; // en la posicion 0 se guarda el numero de cuenta y en la 1 posicion
